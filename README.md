@@ -36,8 +36,3 @@ All original content (code, design, structure) is dedicated to the public domain
 https://creativecommons.org/publicdomain/zero/1.0/
 
 External datasets follow their respective licenses (e.g., City of Zurich Open Data: https://data.stadt-zuerich.ch/)
-
-About Us
---------
-This project was developed by Jian, Leo, Raul, and Noe for the Advanced GIS course at ETH Zürich.  
-Data was collected via mobile SenseBox sensors mounted on a bike during a field survey.
