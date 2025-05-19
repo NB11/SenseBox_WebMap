@@ -25,11 +25,10 @@ Technologies
 
 File Structure
 --------------
-.
-├── web_map.html           # Main web app  
-├── style.css              # Styling rules and layout  
-├── script.js              # App logic, rendering, UI interactions  
-├── Data/                  # Contains SenseBox GeoJSON, CSV, reference GeoJSON  
+web_map.html           # Main web app  
+style.css              # Styling rules and layout  
+script.js              # App logic, rendering, UI interactions  
+Data/                  # Contains SenseBox GeoJSON, CSV, reference GeoJSON  
 
 License
 -------
