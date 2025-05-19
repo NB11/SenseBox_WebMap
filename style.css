@@ -1,3 +1,69 @@
+/*
+  Global Styles:
+  - Reset default padding, margin, and border for html and body.
+  - Set full viewport size and background color.
+  - Prevent horizontal overflow.
+
+  #pageTitle:
+  - Styles the fixed page title bar at the top of the page.
+
+  #mainContainer:
+  - Main flex container for vertical layout.
+
+  #controlBar:
+  - Styles the control bar with flex layout, spacing, and background.
+
+  #viewDiv:
+  - Main map or view area, absolutely positioned with rounded corners.
+  - Handles focus styles for accessibility.
+  - Responsive height and transition for resizing (e.g., half-size mode).
+
+  .esri-widget-panel:
+  - Customizes Esri widget panel appearance.
+
+  #footerLinks:
+  - Styles the footer links at the bottom of the page.
+  - Custom link appearance and hover effects.
+
+  #dynamicLegend:
+  - Floating legend box with white background and shadow.
+  - Contains legend title and color stops.
+
+  .legend-stop, .legend-color-box, #legendStops:
+  - Layout and appearance for legend color stops.
+
+  #attributeSelect:
+  - Styles the attribute selection dropdown.
+
+  #renderControl:
+  - Layout for renderer controls and labels.
+
+  #infoPanel:
+  - Info panel overlay for displaying additional information.
+  - Hidden by default, fades in when shown.
+  - Responsive padding and scrollable content.
+
+  #collapsePanel:
+  - Button for collapsing the info panel, with icon and hover effects.
+
+  .toggleWrapper, .toggleSwitch:
+  - Custom toggle switch styling for layer controls or settings.
+
+  #layerControls:
+  - Flex layout for layer control elements.
+
+  .custom-popup:
+  - Styles for custom popup overlays (e.g., tooltips or info boxes).
+
+  .selectionWrapper:
+  - Layout and appearance for selection controls.
+
+  .infoFlexContainer, .infoText, .infoImage:
+  - Flexbox layout for info panel content, including text and images.
+
+  .infoImage img:
+  - Styles for images inside the info panel, with rounded corners and shadow.
+*/
 html, body {
   padding: 0 !important;
   margin: 0 !important;
@@ -38,7 +104,7 @@ html, body {
     left: 1cm;
     right: 1cm;
     display: flex;
-    flex-wrap: wrap; /* allow items to wrap to next line if needed */
+    flex-wrap: wrap; 
     justify-content: space-between;
     align-items: center;
     gap: 0.5cm;
@@ -75,7 +141,7 @@ html, body {
   
   .esri-widget-panel {
     background-color: white;
-    padding: 0; /* no extra padding if inside #controlBar */
+    padding: 0; 
     font-family: Helvetica, sans-serif;
     font-size: 12px;
     border-radius: 10px;
@@ -91,21 +157,21 @@ html, body {
     right: 1cm;
     text-align: center;
     font-family: Helvetica, sans-serif;
-    font-size: 20px;
-    color: #ffffff; /* light gray */
+    font-size: 15px;
+    color: #ffffff;
     z-index: 100;
   }
   
   #footerLinks a {
     color: #ffffff;
     text-decoration: none;
-    margin: 0 22px;
+    margin: 0 15px;
   }
   
   #footerLinks a:hover {
     text-decoration: underline;
     color: #ffffff;
-    font-size: 25px;
+    font-size: 20px;
   }
   
 
@@ -113,14 +179,14 @@ html, body {
   #dynamicLegend {
     position: absolute;
     right: 0.2cm;
-    bottom: 0.5cm;            /* fixed distance from bottom of #viewDiv */
+    bottom: 0.5cm;           
     background-color: white;
     padding: 6px 8px;
     border: 1px solid #ccc;
     font-family: Helvetica, sans-serif;
     font-size: 11px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 101;             /* just above the map and panel */
+    z-index: 101;             
     border-radius: 10px;
   }
 
@@ -150,29 +216,29 @@ html, body {
   #legendStops {
     display: flex;
     flex-direction: column;
-    gap: 3px;                     /* was 4px */
+    gap: 3px;                  
   }
   
   .legend-stop {
     display: flex;
     align-items: center;
-    gap: 4px;                     /* was 6px */
+    gap: 4px;                    
   }
   
   .legend-color-box {
-    width: 12px;                 /* was 16px */
-    height: 10px;                /* was 12px */
+    width: 12px;                 
+    height: 10px;                
     border: 1px solid #ccc;
   }
   
   #attributeSelect {
-    border: 1px solid #ccc;         /* thin border */
-    background: white;              /* restore white background */
+    border: 1px solid #ccc;        
+    background: white;              
     font-family: Helvetica, sans-serif;
     font-size: 12px;
     margin-left: 0px;
-    padding: 2px 2px;               /* increase internal spacing */
-    border-radius: 10px;             /* optional: small rounded corners */
+    padding: 2px 2px;              
+    border-radius: 10px;             
     appearance: auto;
     -webkit-appearance: auto;
     -moz-appearance: auto;
@@ -188,13 +254,13 @@ html, body {
     margin-right: 2px;
   }
 
-  /* Transition wrapper for map resizing */
+
 #viewDiv {
     position: absolute;
     top: 1cm;
     left: 1cm;
     right: 1cm;
-    bottom: 1cm;
+    bottom: 1.3cm;
     transition: height 0.5s ease;
   }
   
@@ -205,10 +271,10 @@ html, body {
   /* Info panel styling */
   #infoPanel {
     position: absolute;
-    top: calc(1.2cm + 46%);  /* directly below half-height map */
+    top: calc(0.9cm + 46%);  
     left: 1cm;
     right: 1cm;
-    bottom: 1cm;
+    bottom: 1.3cm;
     background-color: white;
     border-top: 1px solid #ccc;
     font-family: Helvetica, sans-serif;
@@ -219,11 +285,11 @@ html, body {
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 90;
-    border-top: none !important;   /* Remove divider line */
+    border-top: none !important;  
     margin-top: 0 !important;
     border-radius: 10px;
-    padding-right: 30px;  /* Adds space between scrollbar and edge */
-    box-sizing: border-box;  /* Ensures padding doesn’t overflow */           /* optional: small rounded corners */
+    padding-right: 30px;  
+    box-sizing: border-box;  /          /* optional: small rounded corners */
   }
   
   #infoPanel.show {
@@ -235,7 +301,7 @@ html, body {
     position: absolute;
     top: 10px;
     left: 50%;
-    transform: translateX(-50%) rotate(0deg); /* now points down */
+    transform: translateX(-50%) rotate(0deg); 
     transition: transform 0.3s ease;
     background-image: url("img/arrow-down.png");
     background-size: 24px 24px;
@@ -252,7 +318,7 @@ html, body {
   }
   
   #collapsePanel:hover {
-    transform: translateX(-50%) rotate(-0deg) scale(1.2); /* enlarge on hover */
+    transform: translateX(-50%) rotate(-0deg) scale(1.2);
   }
   
   #collapsePanel.rotated:hover {
@@ -262,8 +328,8 @@ html, body {
   .toggleWrapper {
     display: flex;
     align-items: center;
-    gap: 5px;            /* gap between switch and label */
-    margin-right: 0.3cm; /* space between this toggle and the next */
+    gap: 5px;            
+    margin-right: 0.3cm;
   }
   
   .toggleWrapper span {
@@ -362,7 +428,7 @@ html, body {
 .infoFlexContainer {
   display: flex;
   gap: 30px;
-  flex-wrap: wrap; /* makes it responsive */
+  flex-wrap: wrap; 
 }
 
 .infoText {
@@ -379,9 +445,8 @@ html, body {
 }
 
 .infoImage img {
-  width: 210px;       /* or try 150px for smaller */
+  width: 210px;     
   height: auto;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
-

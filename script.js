@@ -1,3 +1,40 @@
+
+/**
+ * Zurich SenseBox Map – Interactive Web App (script.js)
+ * -----------------------------------------------------
+ * Main Functional Components:
+ * 
+ * 1. getRenderer(field, symbolStyle)
+ *    - Returns a custom renderer based on the selected attribute (e.g., Temperature, PM2.5).
+ *    - Defines color ramps for visualizing value ranges and supports "circle" or "square" symbols.
+ * 
+ * 2. updateLegend(field, stops)
+ *    - Updates the visual legend based on the selected attribute and its renderer stops.
+ *    - Dynamically reflects the color gradient and unit labels.
+ * 
+ * 3. loadExtraReferenceLayer(filename, attribute)
+ *    - Loads and displays an additional GeoJSON reference layer based on user selection.
+ *    - Supports switching reference datasets dynamically.
+ * 
+ * 4. showCustomWidget(graphic)
+ *    - Generates a custom popup comparing the clicked SenseBox value with the reference value.
+ *    - Includes unit conversion and difference calculation.
+ * 
+ * 5. Event Listeners
+ *    - Layer toggles: Enable/disable visibility of SenseBox and reference layers.
+ *    - Attribute dropdown: Changes the active visualization parameter and updates legend/renderers.
+ *    - Reference dataset dropdown: Loads a different comparison dataset (GeoJSON).
+ *    - Map click: Shows custom popup with value comparisons.
+ *    - Pointer move: Highlights features under the cursor.
+ *    - Footer navigation: Displays info/about/legal panels.
+ * 
+ * 6. Map Initialization
+ *    - Creates a MapView centered on Zurich with zoom and extent constraints.
+ *    - Adds both hosted (FeatureLayer) and local (GeoJSONLayer) datasets.
+ *    - Initializes renderers, legend, and popups on load.
+ */
+
+
 require([
   "esri/Map",
   "esri/views/MapView",
@@ -162,7 +199,7 @@ function loadExtraReferenceLayer(filename, attribute) {
     zoom: 15,
     constraints: {
       minZoom: 13,
-      maxZoom: 16,
+      maxZoom: 17,
       geometry: {
         type: "extent",
         xmin: 8.482,
@@ -349,16 +386,17 @@ text: `
 
 <p>Reference Data Sources:</p>
 <ul>
-  <li><a href="https://data.stadt-zuerich.ch/" target="_blank">City of Zurich Open Data</a> – Official city environmental datasets</li>
-  <li><a href="https://geolion.zh.ch/geodatensatz" target="_blank">Canton Zurich Geodata</a> – Regional environmental and infrastructure data</li>
+  <li><a href="https://data.stadt-zuerich.ch/dataset/ugz_meteodaten_stundenmittelwerte" target="_blank"> Stündlich aktualisierte Meteodaten, seit 1992</a> – City of Zurich Open Data</li>
 </ul>
 `
 
 },
-    contact: {
-      title: "Legal Notice",
-      text: "Provide contact info or a feedback form link here."
-    }
+contact: {
+  title: "Legal Notice",
+  text: `All content on this website, including visualizations, code, and data (excluding third-party data), is dedicated to the public domain under the <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">Creative Commons CC0 1.0 Universal Public Domain Dedication</a>. You are free to copy, modify, distribute, and use the materials, even for commercial purposes, without asking for permission. Please note that external datasets used in this application may be subject to their own licenses.`
+}
+
+
   };
 
   footerLinks.forEach(link => {

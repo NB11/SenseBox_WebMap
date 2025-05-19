@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <!-- Set viewport for responsive design -->
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Zurich SenseBox Map</title>
+  <!-- ArcGIS CSS for map styling -->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.32/esri/themes/light/main.css" />
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- ArcGIS JS API -->
+  <script src="https://js.arcgis.com/4.32/"></script>
+</head>
+<body>
+  <div id="mainContainer">
+    <!-- Page header -->
+    <header id="pageTitle">Zurich SenseBox Map</header>
+
+    <!-- Control bar for layer toggles and rendering options -->
+    <div id="controlBar">
+      <div id="layerControls" class="esri-widget-panel">
+        <!-- Toggle for SenseBox data layer -->
+        <div class="toggleWrapper">
+          <input type="checkbox" id="senseboxLayerToggle" checked />
+          <label class="toggleSwitch" for="senseboxLayerToggle"></label>
+          <span>SenseBox Data</span>
+        </div>
+        <!-- Toggle and selector for reference dataset layer -->
+        <div class="toggleWrapper selectionWrapper">
+          <input type="checkbox" id="referenceLayerToggle" checked />
+          <label class="toggleSwitch" for="referenceLayerToggle"></label>
+          <span></span>
+          <select id="referenceDatasetSelect">
+            <option disabled selected>Select Reference Dataset</option>
+            <option value="zh_confirmation_data.geojson">Stadt Zürich Open Data</option>
+            <!-- Add more when available -->
+          </select>
+        </div>
+      </div>
+
+      <!-- Parameter selection for data visualization -->
+      <span id="renderControl" class="esri-widget-panel">
+        <label for="attributeSelect">Visualized Parameter:</label>
+        <select id="attributeSelect">
+          <option value="Temperature">Temperature</option>
+          <option value="Humidity">Humidity</option>
+          <option value="PM1_0">PM1.0</option>
+          <option value="PM2_5">PM2.5</option>
+          <option value="PM4_0">PM4.0</option>
+          <option value="PM10_0">PM10.0</option>
+        </select>
+      </span>
+    </div>
+
+    <!-- Map view and legend -->
+    <div id="viewDiv">
+      <!-- Dynamic legend for map symbology -->
+      <div id="dynamicLegend" class="esri-widget-panel">
+        <div id="legendStops"></div>
+      </div>
+      <!-- Custom popup for map features -->
+      <div id="customPopup" class="custom-popup esri-widget-panel"></div>
+    </div>
+  </div>
+
+  <!-- Information panel for footer links -->
+  <div id="infoPanel">
+    <button id="collapsePanel" class="collapse-arrow" aria-label="Collapse panel"></button>
+    <h2 id="infoTitle">Title</h2>
+    <p id="infoContent">This is placeholder text. It will change when you click a footer link.</p>
+  </div>
+
+  <!-- Footer with navigation links -->
+  <footer id="footerLinks">
+    <a href="#" data-section="about">About Us</a>
+    <a href="#" data-section="source">Data</a>
+    <a href="#" data-section="contact">Legal Notice</a>
+  </footer>
+
+  <!-- Main JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>
