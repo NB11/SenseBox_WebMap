@@ -16,14 +16,12 @@ Web Application Features
 - Toggle visibility of SenseBox and reference layers  
 - Attribute selection for rendering and legend updates (temperature, humidity, particulates)  
 - Interactive custom popup comparing sensor values with reference  
-- Responsive design with info panel and footer navigation  
-- Additional dataset upload capability (GeoJSON)
+  
 
 Technologies
 ------------
 - HTML5, CSS3, JavaScript  
 - ArcGIS JavaScript API 4.x  
-- GeoJSON and hosted feature services
 
 File Structure
 --------------
